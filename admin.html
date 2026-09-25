@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="pl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,7 +47,7 @@ h2 {
     display: none !important;
 }
 
-/* LOGIN */
+/* LOGOWANIE */
 
 .login-box {
     padding-top: 20vh;
@@ -88,7 +88,7 @@ select:focus {
     border-color: #b52b20;
 }
 
-/* BUTTONS */
+/* PRZYCISKI */
 
 button {
     border: 0;
@@ -117,7 +117,7 @@ button {
     font-size: 13px;
 }
 
-/* TABS */
+/* ZAKŁADKI */
 
 .tabs {
     display: flex;
@@ -136,7 +136,7 @@ button {
     color: white;
 }
 
-/* FORM */
+/* FORMULARZ */
 
 .form {
     background: rgba(255,255,255,.22);
@@ -144,7 +144,7 @@ button {
     padding: 15px;
 }
 
-/* DISH LIST */
+/* LISTA DAŃ */
 
 .dish-list {
     margin-top: 20px;
@@ -243,16 +243,16 @@ button {
 
 <div class="admin-container">
 
-    <a href="index.html" class="back">← BACK TO MENU</a>
+    <a href="index.html" class="back">← POWRÓT DO MENU</a>
 
-    <!-- LOGIN -->
+    <!-- LOGOWANIE -->
 
     <div id="loginScreen" class="login-box">
 
-        <h1>ADMIN</h1>
+        <h1>ADMINISTRACJA</h1>
 
         <div class="input-group">
-            <label>Email</label>
+            <label>E-mail</label>
             <input
                 id="email"
                 type="email"
@@ -262,17 +262,17 @@ button {
         </div>
 
         <div class="input-group">
-            <label>Password</label>
+            <label>Hasło</label>
             <input
                 id="password"
                 type="password"
                 autocomplete="off"
-                placeholder="Password"
+                placeholder="Hasło"
             >
         </div>
 
         <button class="main-btn" id="loginBtn">
-            LOGIN
+            ZALOGUJ SIĘ
         </button>
 
         <div class="status" id="loginStatus"></div>
@@ -280,20 +280,20 @@ button {
     </div>
 
 
-    <!-- ADMIN -->
+    <!-- PANEL ADMINISTRATORA -->
 
     <div id="adminScreen" class="hidden">
 
-        <h1>ADMIN</h1>
+        <h1>ADMINISTRACJA</h1>
 
         <div class="tabs">
 
             <button id="foodTab" class="active">
-                JAPANESE FOOD
+                JEDZENIE JAPOŃSKIE
             </button>
 
             <button id="barTab">
-                JAPANESE BAR
+                BAR JAPOŃSKI
             </button>
 
         </div>
@@ -302,13 +302,13 @@ button {
         <div class="form">
 
             <h2 id="formTitle">
-                ADD FOOD
+                DODAJ JEDZENIE
             </h2>
 
             <input type="hidden" id="editingId">
 
             <div class="input-group">
-                <label>Name</label>
+                <label>Nazwa</label>
 
                 <input
                     id="name"
@@ -319,7 +319,7 @@ button {
 
 
             <div class="input-group">
-                <label>Price</label>
+                <label>Cena</label>
 
                 <input
                     id="price"
@@ -330,7 +330,7 @@ button {
 
 
             <div class="input-group">
-                <label>Category</label>
+                <label>Kategoria</label>
 
                 <input
                     id="category"
@@ -341,38 +341,38 @@ button {
 
 
             <div class="input-group">
-                <label>Description</label>
+                <label>Opis</label>
 
                 <textarea
                     id="description"
-                    placeholder="Description..."
+                    placeholder="Opis..."
                 ></textarea>
             </div>
 
 
             <div class="input-group">
-                <label>Ingredients</label>
+                <label>Składniki</label>
 
                 <textarea
                     id="ingredients"
-                    placeholder="Noodles, broth, pork..."
+                    placeholder="Makarony, bulion, wieprzowina..."
                 ></textarea>
             </div>
 
 
             <div class="input-group">
-                <label>Allergens</label>
+                <label>Alergeny</label>
 
                 <input
                     id="allergens"
                     type="text"
-                    placeholder="Gluten, soy..."
+                    placeholder="Gluten, soja..."
                 >
             </div>
 
 
             <div class="input-group">
-                <label>Photo</label>
+                <label>Zdjęcie</label>
 
                 <input
                     id="photo"
@@ -392,7 +392,7 @@ button {
                 class="main-btn"
                 id="saveBtn"
             >
-                ADD DISH
+                DODAJ DANIE
             </button>
 
 
@@ -400,7 +400,7 @@ button {
                 class="cancel-btn hidden"
                 id="cancelBtn"
             >
-                CANCEL EDIT
+                ANULUJ EDYCJĘ
             </button>
 
             <div
@@ -411,7 +411,7 @@ button {
         </div>
 
 
-        <h2>YOUR DISHES</h2>
+        <h2>TWOJE DANIA</h2>
 
         <div
             class="dish-list"
@@ -423,7 +423,7 @@ button {
             class="main-btn logout"
             id="logoutBtn"
         >
-            LOG OUT
+            WYLOGUJ SIĘ
         </button>
 
     </div>
@@ -508,14 +508,14 @@ const UPLOAD_PRESET =
 
 
 /* =========================================================
-   VARIABLES
+   ZMIENNE
 ========================================================= */
 
 let currentSection = "food";
 
 
 /* =========================================================
-   ELEMENTS
+   ELEMENTY
 ========================================================= */
 
 const loginScreen =
@@ -541,7 +541,7 @@ const barTab =
 
 
 /* =========================================================
-   LOGIN
+   LOGOWANIE
 ========================================================= */
 
 document
@@ -566,14 +566,14 @@ async function login() {
     if (!email || !password) {
 
         loginStatus.textContent =
-            "Введите email и пароль.";
+            "Wprowadź adres e-mail i hasło.";
 
         return;
     }
 
 
     loginStatus.textContent =
-        "LOGIN...";
+        "LOGOWANIE...";
 
 
     try {
@@ -591,7 +591,7 @@ async function login() {
         console.error(error);
 
         loginStatus.textContent =
-            "Неверный email или пароль.";
+            "Nieprawidłowy e-mail lub hasło.";
 
     }
 
@@ -599,7 +599,7 @@ async function login() {
 
 
 /* =========================================================
-   AUTH STATE
+   STAN UWIERZYTELNIENIA
 ========================================================= */
 
 onAuthStateChanged(auth, user => {
@@ -624,7 +624,7 @@ onAuthStateChanged(auth, user => {
 
 
 /* =========================================================
-   SECTION
+   SEKCJA
 ========================================================= */
 
 foodTab.addEventListener("click", () => {
@@ -636,7 +636,7 @@ foodTab.addEventListener("click", () => {
     barTab.classList.remove("active");
 
     document.getElementById("formTitle")
-        .textContent = "ADD FOOD";
+        .textContent = "DODAJ JEDZENIE";
 
     loadDishes();
 
@@ -652,7 +652,7 @@ barTab.addEventListener("click", () => {
     foodTab.classList.remove("active");
 
     document.getElementById("formTitle")
-        .textContent = "ADD BAR";
+        .textContent = "DODAJ BAR";
 
     loadDishes();
 
@@ -660,7 +660,7 @@ barTab.addEventListener("click", () => {
 
 
 /* =========================================================
-   CLOUDINARY UPLOAD
+   PRZESYŁANIE DO CLOUDINARY
 ========================================================= */
 
 async function uploadImage(file) {
@@ -692,7 +692,7 @@ async function uploadImage(file) {
     if (!response.ok) {
 
         throw new Error(
-            "Cloudinary upload failed"
+            "Przesyłanie do Cloudinary nie powiodło się"
         );
 
     }
@@ -708,7 +708,7 @@ async function uploadImage(file) {
 
 
 /* =========================================================
-   ADD / EDIT
+   DODAWANIE / EDYCJA
 ========================================================= */
 
 document
@@ -759,7 +759,7 @@ async function saveDish() {
     if (!name || !price) {
 
         saveStatus.textContent =
-            "Название и цена обязательны.";
+            "Nazwa i cena są wymagane.";
 
         return;
     }
@@ -771,7 +771,7 @@ async function saveDish() {
     saveBtn.disabled = true;
 
     saveStatus.textContent =
-        "Сохранение...";
+        "Zapisywanie...";
 
 
     try {
@@ -779,12 +779,12 @@ async function saveDish() {
         let imageUrl = "";
 
 
-        /* PHOTO */
+        /* ZDJĘCIE */
 
         if (photo.files.length > 0) {
 
             saveStatus.textContent =
-                "Загрузка фото...";
+                "Przesyłanie zdjęcia...";
 
             imageUrl =
                 await uploadImage(
@@ -818,7 +818,7 @@ async function saveDish() {
         }
 
 
-        /* EDIT */
+        /* EDYCJA */
 
         if (editingId) {
 
@@ -833,7 +833,7 @@ async function saveDish() {
 
         }
 
-        /* ADD */
+        /* DODAWANIE */
 
         else {
 
@@ -856,14 +856,14 @@ async function saveDish() {
         await loadDishes();
 
         saveStatus.textContent =
-            "Готово!";
+            "Gotowe!";
 
     } catch (error) {
 
         console.error(error);
 
         saveStatus.textContent =
-            "Ошибка: " +
+            "Błąd: " +
             error.message;
 
     } finally {
@@ -876,13 +876,13 @@ async function saveDish() {
 
 
 /* =========================================================
-   LOAD
+   WCZYTYWANIE
 ========================================================= */
 
 async function loadDishes() {
 
     dishList.innerHTML =
-        "Загрузка...";
+        "Ładowanie...";
 
 
     try {
@@ -963,11 +963,11 @@ async function loadDishes() {
                 <div class="actions">
 
                     <button class="edit-btn">
-                        EDIT
+                        EDYTUJ
                     </button>
 
                     <button class="delete-btn">
-                        DELETE
+                        USUŃ
                     </button>
 
                 </div>
@@ -1004,7 +1004,7 @@ async function loadDishes() {
 
             dishList.innerHTML =
                 `<div class="status">
-                    Нет блюд в этом разделе.
+                    Brak dań w tej sekcji.
                 </div>`;
 
         }
@@ -1016,7 +1016,7 @@ async function loadDishes() {
 
         dishList.innerHTML =
             `<div class="status">
-                Ошибка загрузки.
+                Błąd ładowania.
             </div>`;
 
     }
@@ -1025,7 +1025,7 @@ async function loadDishes() {
 
 
 /* =========================================================
-   EDIT
+   EDYCJA
 ========================================================= */
 
 function editDish(id, data) {
@@ -1055,7 +1055,7 @@ function editDish(id, data) {
         .value = "";
 
     document.getElementById("saveBtn")
-        .textContent = "SAVE CHANGES";
+        .textContent = "ZAPISZ ZMIANY";
 
     document.getElementById("cancelBtn")
         .classList.remove("hidden");
@@ -1069,14 +1069,14 @@ function editDish(id, data) {
 
 
 /* =========================================================
-   DELETE
+   USUWANIE
 ========================================================= */
 
 async function deleteDish(id) {
 
     if (
         !confirm(
-            "Удалить это блюдо?"
+            "Czy na pewno chcesz usunąć to danie?"
         )
     ) {
         return;
@@ -1101,7 +1101,7 @@ async function deleteDish(id) {
         console.error(error);
 
         alert(
-            "Ошибка удаления."
+            "Błąd podczas usuwania."
         );
 
     }
@@ -1110,7 +1110,7 @@ async function deleteDish(id) {
 
 
 /* =========================================================
-   CLEAR FORM
+   CZYSZCZENIE FORMULARZA
 ========================================================= */
 
 document
@@ -1151,7 +1151,7 @@ function clearForm() {
         .style.display = "none";
 
     document.getElementById("saveBtn")
-        .textContent = "ADD DISH";
+        .textContent = "DODAJ DANIE";
 
     document.getElementById("cancelBtn")
         .classList.add("hidden");
@@ -1160,7 +1160,7 @@ function clearForm() {
 
 
 /* =========================================================
-   PHOTO PREVIEW
+   PODGLĄD ZDJĘCIA
 ========================================================= */
 
 document
@@ -1186,7 +1186,7 @@ document
 
 
 /* =========================================================
-   LOGOUT
+   WYLOGOWANIE
 ========================================================= */
 
 document
@@ -1198,8 +1198,8 @@ document
             await signOut(auth);
 
             /*
-             * После выхода Firebase снова
-             * покажет окно LOGIN.
+             * Po wylogowaniu Firebase ponowne
+             * wyświetli ekran LOGOWANIA.
              */
 
         }
@@ -1207,7 +1207,7 @@ document
 
 
 /* =========================================================
-   ESCAPE HTML
+   ANULOWANIE ZNAKÓW HTML (ESCAPE HTML)
 ========================================================= */
 
 function escapeHtml(value) {
